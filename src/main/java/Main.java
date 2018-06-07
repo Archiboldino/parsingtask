@@ -5,17 +5,26 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import util.XmlParser;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Element personElement = XmlParser.createPersonElement(new Person(1, "asd", "123", 123, "sa"));
-        Document doc = new Document();
-        doc.addContent(personElement);
+        List<Person> persons = Arrays.asList(new Person(1, "asd", "123", 123, "sa"),
+            new Person(2, "dsa", "addr", 321, "as"));
 
-        XMLOutputter xmlOutput = new XMLOutputter();
-        xmlOutput.setFormat(Format.getPrettyFormat());
-        String output = xmlOutput.outputString(doc);
-
-
-        System.out.println(output);
+        try (FileOutputStream stream = new FileOutputStream("kek.xml")) {
+            stream.write(XmlParser.getXml(persons).getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

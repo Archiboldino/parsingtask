@@ -1,19 +1,38 @@
 package util;
 
 import entity.Person;
+import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+
+import javax.print.Doc;
+import java.util.List;
 
 public class XmlParser {
     public static String parse() {
+        Document doc = new Document();
+        
 
         return "";
     }
 
-    public static void write() {
+    public static String getXml(List<Person> content) {
         Element catalog = new Element("catalog");
         Element notebook = new Element("notebook");
-        catalog.setContent(notebook);
+
+        catalog.addContent(notebook);
+
+        content.forEach(p -> catalog.addContent(createPersonElement(p)));
+
+        Document doc = new Document();
+        doc.addContent(catalog);
+
+        XMLOutputter xmlOutput = new XMLOutputter();
+        xmlOutput.setFormat(Format.getPrettyFormat());
+
+        return xmlOutput.outputString(doc);
     }
 
     public static Element createPersonElement(Person person) {
