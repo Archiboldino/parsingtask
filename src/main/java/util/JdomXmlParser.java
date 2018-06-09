@@ -24,7 +24,6 @@ public class JdomXmlParser implements XmlParser{
 
     @Override
     public List<Person> parsePersons(String fileName) throws JDOMException, IOException {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         SAXBuilder builder;
         try {
             builder = new SAXBuilder();
