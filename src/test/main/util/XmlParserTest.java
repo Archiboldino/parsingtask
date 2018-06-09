@@ -26,7 +26,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(Parameterized.class)
 public class XmlParserTest {
-    XmlParser parser;
+    private XmlParser parser;
 
     private List<Person> people;
 
@@ -47,16 +47,20 @@ public class XmlParserTest {
 
     @Test
     public void getPersonsXml() throws IOException {
-        String actual = parser.getPersonsXml(people);
+        //Remove formatting
+        String actual = parser.getPersonsXml(people)
+                .replaceAll("\\n\\r", "").replaceAll("[\\t\\s]", "");
 
         String expected = new String (Files.readAllBytes(Paths.get(getClass()
-                .getResource("/test_expected.xml").getFile())));
+                .getResource("/test_expected.xml").getFile())))
+                .replaceAll("\\n\\r", "").replaceAll("[\\t\\s]", "");
 
         assertEquals(expected, actual);
     }
 
     @Parameterized.Parameters
     public static Collection<Object> parameters() {
-        return Arrays.asList(new Object[]{new JdomXmlParser()});
+        return Arrays.asList(new Object[]{new JdomXmlParser()},
+                new Object[]{new DomXmlParser()});
     }
 }
