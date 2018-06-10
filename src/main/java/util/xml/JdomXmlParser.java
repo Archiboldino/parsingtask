@@ -1,4 +1,4 @@
-package util;
+package util.xml;
 
 import entity.Person;
 import org.jdom2.Document;
