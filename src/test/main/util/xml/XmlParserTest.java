@@ -1,4 +1,4 @@
-package util;
+package util.xml;
 
 import entity.Person;
 import org.jdom2.JDOMException;
@@ -6,6 +6,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import util.xml.DomXmlParser;
+import util.xml.JdomXmlParser;
+import util.xml.XmlParser;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -51,7 +54,7 @@ public class XmlParserTest {
         String actual = parser.getPersonsXml(people)
                 .replaceAll("\\n\\r", "").replaceAll("[\\t\\s]", "");
 
-        String expected = new String (Files.readAllBytes(Paths.get(getClass()
+        String expected = new String(Files.readAllBytes(Paths.get(getClass()
                 .getResource("/test_expected.xml").getFile())))
                 .replaceAll("\\n\\r", "").replaceAll("[\\t\\s]", "");
 

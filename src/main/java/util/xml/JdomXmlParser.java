@@ -4,23 +4,16 @@ import entity.Person;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
-import org.jdom2.input.DOMBuilder;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-import org.xml.sax.SAXException;
 
-import javax.print.Doc;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JdomXmlParser implements XmlParser{
+public class JdomXmlParser implements XmlParser {
 
     @Override
     public List<Person> parsePersons(String fileName) throws JDOMException, IOException {
@@ -34,7 +27,7 @@ public class JdomXmlParser implements XmlParser{
             return root.getChild("notebook").getChildren("person").stream()
                     .map(this::createPersonFromElement)
                     .collect(Collectors.toList());
-        } catch ( IOException | JDOMException e) {
+        } catch (IOException | JDOMException e) {
             e.printStackTrace();
             throw e;
         }
