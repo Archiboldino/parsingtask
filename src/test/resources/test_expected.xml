@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <notebook>
+    <person id="1">
+      <name>asd</name>
+      <address>123</address>
+      <cash>123</cash>
+      <education>sa</education>
+    </person>
+    <person id="2">
+      <name>dsa</name>
+      <address>addr</address>
+      <cash>1000000</cash>
+      <education>as</education>
+    </person>
+  </notebook>
+</catalog>
