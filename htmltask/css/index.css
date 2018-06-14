@@ -1,0 +1,11 @@
+header {
+    align-self: center;
+}
+
+#container div {
+    display: inline-block;
+}
+
+#container div div {
+    display: block;
+}
