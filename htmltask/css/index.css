@@ -1,0 +1,69 @@
+header {
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 1px solid;
+}
+
+.login {
+    float: right;
+}
+
+.container {
+    width: 100%;
+    float: left;
+    border-top: 10px;
+    display: flex;
+}
+
+.container-all {
+    width: 100%;
+    float: left;
+    border-top: 10px;
+    display: flex;
+    background-color: aqua;
+    background-image: url(https://i.ytimg.com/vi/6KzHYkHpkeg/hqdefault.jpg);
+    background-repeat: round;
+}
+
+form {
+    padding-left: 5%;
+}
+
+form input {
+    width: 100%;
+}
+
+.form-labels div {
+    text-align: right;
+    padding-right: 10px;
+}
+
+form .container {
+    /* margin: 5%; */
+}
+
+.form-inputs {
+    width: 80%;
+}
+
+#left,#right {
+    width: 20%;
+}
+
+#left {
+    border-right: 1px solid;
+}
+
+#right {
+    padding-left: 10px;
+    border-left: 1px solid;
+    color: white;
+    text-align: left;
+}
+
+#center {
+    width: 60%;
+    background-color: gray;
+}

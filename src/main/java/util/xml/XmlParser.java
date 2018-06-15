@@ -14,8 +14,5 @@ import java.util.List;
  * @version 1.0
  */
 public interface XmlParser {
-
-    List<Person> parsePersons(String fileName) throws JDOMException, IOException;
-
     String getPersonsXml(List<Person> content);
 }
