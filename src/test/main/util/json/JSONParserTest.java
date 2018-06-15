@@ -14,8 +14,6 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * JacksonJSONParserTest
  * created on 6/10/18
@@ -23,7 +21,7 @@ import static org.junit.Assert.*;
  * @author Nikita Zabaykin vladlihovid@gmail.com
  * @version 1.0
  */
-public class JacksonJSONParserTest {
+public class JSONParserTest {
     List<Currency> currencies;
     String expectedJSON;
 
@@ -38,7 +36,7 @@ public class JacksonJSONParserTest {
 
     @Test
     public void toJSON() throws IOException {
-        JacksonJSONParser parser = new JacksonJSONParser();
+        JSONParser parser = new JacksonJSONParser();
 
         String actual = parser.toJSON(currencies);
 
@@ -47,7 +45,7 @@ public class JacksonJSONParserTest {
 
     @Test
     public void fromJSON() throws FileNotFoundException {
-        JacksonJSONParser parser = new JacksonJSONParser();
+        JSONParser parser = new JacksonJSONParser();
 
         List<Currency> actual = parser.fromJSON(new FileInputStream(getClass().
                 getResource("/test.json").getFile()));

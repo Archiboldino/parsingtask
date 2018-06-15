@@ -19,7 +19,8 @@ import java.util.List;
  * @author Nikita Zabaykin vladlihovid@gmail.com
  * @version 1.0
  */
-public class JacksonJSONParser {
+public class JacksonJSONParser implements JSONParser {
+    @Override
     public String toJSON(List<Currency> currencies) {
         ObjectMapper mapper = new ObjectMapper();
         StringWriter result = new StringWriter();
@@ -32,6 +33,7 @@ public class JacksonJSONParser {
         return result.toString();
     }
 
+    @Override
     public List<Currency> fromJSON(InputStream stream) {
         ObjectMapper mapper = new ObjectMapper();
 
